@@ -1,0 +1,126 @@
+<script src="/javascripts/fabric.min.js" type="text/javascript"></script>
+<script src="/jquery/jquery.js"></script>
+
+<script src="/javascripts/FileSaver.js" type="text/javascript"></script>
+<script src="/javascripts/canvas-toBlob.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="/stylesheets/styleMainEditor.css" />	
+<link rel="stylesheet" href="/stylesheets/styleRangePicker.css" />	
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+<input type="text" id="hiddenProjectName" value={{ projectName }}>
+<input type="text" id="hiddenUserName" value={{ username }}>
+
+<div class="row" id="templates"></div>
+
+<div class="row" id="mainScreen">
+    <div class="col" id="editor">
+        <div class="progress" id="progressBar">
+            <div class="indeterminate"></div>
+        </div>
+
+        <div class="col" id="mToolbar">
+            <div class="row">
+                <button id="bSquare" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Rectangle">check_box_outline_blank</button>
+            </div>
+            <div class="row">
+                <button id="bCircle" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Ellipse">radio_button_unchecked</button>
+            </div>
+            <div class="row">
+                <button id="bTriangle" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Triangle">change_history</button>
+            </div>
+            <div class="row">
+                <button id="bLine" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Line">arrow_right_alt</button>
+            </div>
+            <div class="row">
+                <button id="bStar" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Star">star_border</button>
+            </div>
+            <div class="row">
+                <button id="bPolygon" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Regular Polygon">format_shapes</button>
+            </div>
+            <div class="row">
+                <button id="bDelete" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Delete Shape">delete</button>
+            </div>
+            <div class="row">
+                <button id="bSave" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Save File">save</button>
+            </div>
+            <div class="row">
+                <button id="bSync" class="material-icons btn waves-effect waves-light tooltipped" data-position="right" data-tooltip="Sync With Cloud">autorenew</button>
+            </div>
+        </div>
+        <div class="col" onclick="">
+            <canvas class="valign-wrapper" id="mCanvas" height="600px" width="800px"></canvas>
+            <div id='cntnr'>
+                    <ul id='items'>
+                    <li id="copy_items">Copy</li>
+                    <li id="paste_items">Paste</li>
+                    </ul>
+                    <hr />
+                    <ul id='items'>
+                    <li id="deselect_items">Deselect</li>
+                    <li id="group_items">Group Items</li>
+                    <li id="ungroup_items">Ungroup Items</li>
+                    </ul>
+                    <hr />
+                    <ul id='items'>
+                    <li id="send_items_backwards">Send Backwards</li>
+                    <li id="send_items_back">Send to Back</li>
+                    <li id="bring_items_forward">Bring to Forward</li>  
+                    <li id="bring_items_front">Bring to Front</li>  
+                    </ul>
+                </div>
+        </div>
+        <div class="col" id='mOptionsToolbar'>
+            <div class="row">
+                <div class="slidecontainer">
+                    <label for="rangeStroke">Set stroke</label>
+                    <input type="range" min="0" max="10" value="2" class="slider" id="rangeStroke">
+                </div>
+                <label>Value: <span id="strokeValue"></span></label>
+            </div>
+            
+             <div class="row">
+                <div class="slidecontainer">
+                    <label for="rangeAlpha">Set alpha</label>
+                    <input type="range" min="0" max="10" value="10" class="slider" id="rangeAlpha">
+                </div>
+                <label>Value: <span id="alphaValue"></span></label>
+            </div>
+            <div class="row">
+                <fieldset>
+                    <legend>Choose colors</legend>
+                    <div>
+                        <input type="color" id="strokeColor" name="color" value="#e66465" />
+                        <label for="strokeColor">Stroke color</label>
+                    </div>
+                    <div>
+                        <input type="color" id="fillColor" name="color" value="#f6b73c" />
+                        <label for="fillColor">Fill color</label>
+                    </div>                  
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <button id="bPreview" onclick="openPrev()" class="col material-icons btn waves-effect waves-light tooltipped" data-position="top" data-tooltip="Preview latest commit">slideshow</button>
+    <div class="col" id="commits">
+            
+    </div>
+</div>
+ <div id="myNav" class="overlay">
+  <!-- Button to close the overlay navigation -->
+<a href="javascript:void(0)" class="closebtn" onclick="closePrev()">&times;</a>
+  <!-- Overlay content -->
+    <div class="overlay-content">
+        <div class="centered" style="width:800px">
+            <div class="progress" id="prevProgressBar">
+                <div class="indeterminate"></div>
+            </div>
+            <canvas class="valign-wrapper" id="mPreviewCanvas" height="514px" width="800px"></canvas>
+        </div>
+    </div>
+</div>
+
+
+<script src="/javascripts/canvas/canvasHelperMethods.js" type="text/javascript"></script>
+<script src="/javascripts/canvas/basicCanvas.js" type="text/javascript"></script>

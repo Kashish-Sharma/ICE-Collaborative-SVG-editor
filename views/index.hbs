@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/stylesheets/styleHomePage.css" />	
+<div class="enter">
+	<h1>ICE</h1>
+    
+		{{#if isUser }}
+		<form action="/submitHomeProjectName" method="POST">
+		<input type="text" name="pname" placeholder="Project Name" required="required" />
+		<button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+		<input type="text" id="usernameHidden" name="username" value={{uname}} />
+		</form>
+		<form action="/projects/select" method="POST">
+		<button type="submit" class="btn btn-primary btn-block btn-large">Choose a project.</button>
+		<input type="text" id="usernameHidden" name="username" value={{uname}} />
+		</form>
+		{{else}}
+		<form action="submitHomeUserName" method="POST">
+		<input type="text" name="uname" placeholder="Username" required="required" />
+		<button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+		</form>
+		{{/if}}
+</div>
+

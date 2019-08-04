@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/stylesheets/styleHomePage.css" />	
+<div class="enter">
+	<h1>ICE</h1>
+		<form action="/submitHomeProjectName" method="POST">
+		<div class="list">
+		{{#each projects}}
+			<p>
+				<label><input type="radio" name="pname">
+				<span>{{this}}</span>
+				</label>
+			</p>
+		{{/each}}
+		</div>
+		<button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+		<input type="text" id="usernameHidded" name="username" value={{uname}} />
+		</form>
+</div>
+
