@@ -31,3 +31,11 @@ We provide some basic shapes to create and use out-of-the-box like:<br>
 When connected online, all commits are synced with the server which in turn informs all other connected users and syncs up with them.
 
 ## Screenshots
+<p float="left">
+  <img src="https://github.com/Kashish-Sharma/ICE-Collaborative-SVG-editor/blob/master/screenshots/ice1.jpg">
+  <img src="https://github.com/Kashish-Sharma/ICE-Collaborative-SVG-editor/blob/master/screenshots/ice3.jpg">
+  <img src="https://github.com/Kashish-Sharma/ICE-Collaborative-SVG-editor/blob/master/screenshots/ice4.jpg">
+  <img src="https://github.com/Kashish-Sharma/ICE-Collaborative-SVG-editor/blob/master/screenshots/ice5.jpg">
+  <img src="https://github.com/Kashish-Sharma/ICE-Collaborative-SVG-editor/blob/master/screenshots/ice6.jpg">
+  <img src="https://github.com/Kashish-Sharma/ICE-Collaborative-SVG-editor/blob/master/screenshots/ice7.jpg">
+</p>
