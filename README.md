@@ -1,9 +1,6 @@
-# ICE
-
-Join our _[gitter](https://gitter.im/ICE-minor/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)_ community
-
 ## Getting started
-* Paste your `serviceAccount.json` file in root directory.
+* Create a new Firebase Web Project.
+* Paste your Firebase `serviceAccount.json` file in root directory.
 * Clone the repo.
 * <code>npm install </code>
 
